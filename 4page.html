@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fourth blog page</title>
+    <link href="/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <section>
+        <div class="container-center container-image-ratio">
+            <h1>responsive web app design; things I wish someone would have told me earlier!</h1>
+            <small>February5,2022</small>
+            <img class="container-center"
+                src="https://tanaypratap.com/static/cdc4dc5c7d3a73d2de33cff205a1352b/50e7b/grid-layout-using-bricks.jpeg"
+                alt="" />
+            <p>
+                tl;dr If you’re starting CSS today, don’t use BootStrap, use flexbox, learn to use media-query and
+                seriously do mobile-first!
+            </p>
+            <br>
+            <p>
+                I don’t know CSS When I started web development three years back, I didn’t know anything about it. I had
+                never even made a webpage, somehow passed my college (manage D grade in web development), didn’t even
+                know what
+                tag was.
+            </p>
+            <br>
+            <p>
+                I remember a friend of mine (Vikram) working as Full Stack Dev was showing me his web app and I was
+                blown away, when I asked him how can he make such amazing apps, his words were, “Dude! It’s really easy,
+                here, see the bootstrap website!“. Bootstrap made making websites very easy for me. I even took 3-4
+                sessions for college grads to introduce them to web development through bootstrap and even they enjoyed
+                it.
+            </p>
+            <br>
+            <p><strong>Then why did I move from Bootstrap</strong> So here, I am happy with Bootstrap making web apps
+                and outsourcing all
+                my styling needs to Bootstrap, taking care of responsiveness and everything. Then, in my current
+                workplace, I got a task where in we have to inject some rendered code into client’s website. I happily
+                designed the component with Bootstrap and it worked all right while testing but it broke in production.
+                You ask why? because Bootstrap as a framework was setting things on global level and was either
+                overwriting client’s CSS or was being overwritten.</p>
+            <br>
+            <p><strong>Flex is super easy</strong> You cannot make grids easier than this. Plus it comes with things one
+                always struggles
+                with: vertical centring!Another good part about flexbox is that it is supported across all major
+                browsers. However, you would like to use autoprefixer just in case. I have tested the app on Chrome,
+                Firefox, Safari and on mobile Safari.</p>
+            <br>
+            <h2><strong>SOME ADVICE</strong></h2>
+            <br>
+            <p><strong>Do Mobile First:</strong> No, really! First thing we should do is we should finalize how things
+                will look on
+                mobile devices. Then move up the ladder. Understand media queries and min and max width, it’s very easy
+                to control the look on different screen sizes. The terms are confusing but it’s super useful. Transform
+                Translate is good tool for positioning. Earlier, I used either margin or absolute positioning but it
+                would hurt the responsiveness of the site. Wish I would have known about it before. My Mistakes
+
+                While it was very easy to get flexbox working on the JSBin, it almost broke my back integrating it into
+                the existing code. As mentioned earlier, I have a bad habit of giving margin. It came back to bite me
+                coz wrapping was not working properly.<strong>Lesson learnt:</strong> when doing CSS do a top down
+                approach. I need to
+                be systematic while designing. I had also used wordwraps and things taken from stackoverflow answers,
+                which was breaking a lot of responsiveness. I think I need to get into it and understand how things
+                which I use actually work to save time in future.</p>
+        </div>
+    </section>
+
+</body>
+
+</html>

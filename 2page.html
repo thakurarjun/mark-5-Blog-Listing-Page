@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>second blog page</title>
+    <link href="/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section>
+      <div class="container-center container-image-ratio">
+        <h1>3 simple tricks to make your webapp 3X faster!</h1>
+        <small>january25,2022</small>
+        <img class="container-center"
+        src="https://tanaypratap.com/static/8ac9eb42470909d2f6f2a88f944caee6/db559/flash.jpg"
+        alt="" />
+        <p>
+          The easiest way I could have written this blog was to put some code
+          and explain what each line does. I personally feel though, that
+          understanding the mechanics behind these things is very important.
+          Only then one will be able to fine tune it for individual needs. So
+          the clickbait title got you here, now keep reading and ask questions
+          in comments if you have any.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="container-center container-image-ratio">
+        <h3>Why Chunking?</h3>
+        <p>
+          With the advent of JS frameworks and Single Page Apps(SPAs), more and
+          more code, logic and libraries have moved towards user instead of
+          being rendered on the server. This, on one side has improved user
+          experience but on the other side has increased the total KBs/MBs
+          getting downloaded in the browser and thus slowing the first paint.
+          Webpack (or whichever build tool you use) bundles all the JS/CSS files
+          needed by your app to run in one big file. This was done with the
+          belief that small files waste precious HTTP requests (as the browser
+          can only do so many at parallel) and thus has its heart at the right
+          place. However, as explained, with time the bundle just gets bigger
+          and bigger.
+          <br />
+          Solution is simple, when the build file is too big, it outweighs the
+          performance gain of saving an additional HTTP request. At that time
+          one needs to start breaking that file into pieces or CHUNKS, hence,
+          the name chunking.
+        </p>
+      </div>
+    </section>
+    <hr />
+    <section>
+      <div class="container-center">
+        <h2>Why Versioning?</h2>
+        <p>
+          When a build is broken into chunks, change in one chunk doesn’t affect
+          other. For example, change in login page will change the user-control
+          chunk but not the app, or the libraries. However, without versioning
+          user will have no idea where the changes are and thus, the browser
+          will download everything on every download. We don’t want that. We
+          want parts/chunks which are not changed to be taken from browser’s
+          cache and only the changed parts to be downloaded.
+          <br />
+          Simple solution is to do a hash of your chunk, i.e. the VERSION and
+          append it on the file name. I will show you how to do that in a
+          minute, and it’s very easy with the webpack plugins, but even if you
+          want to do it without these tools, the idea is simple. Take a hash of
+          the file > Append it to file name > Make sure that every time there’s
+          a file change this process is repeated.
+        </p>
+      </div>
+    </section>
+    <hr />
+    <section>
+      <div class="container-center">
+        <h3>Why Caching?</h3>
+        <p>
+          Caching is the most important tool in the performance toolbox. The
+          less data browser downloads the faster the page loads. Browsers are
+          very smart, if it sees that file name hasn’t changed and the cache
+          setting for the file permits then it will use the cache copy.
+          <br />
+          That’s where versioning and caching goes hand in hand. We don’t want
+          our users to download an unchanged file every time he visits the
+          website (thus, caching) and we don’t want the user to miss out a
+          change we pushed because of a stale cache (thus, versioning)
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="container-center">
+        <h3>How Chunking?</h3>
+        <p>
+          Ha! now when we have cleared the theory, let’s see how we do it. For
+          understanding purposes, I am doing only two chunks, i.e. main and
+          vendor. Vendor code is your React, React Router, Redux, Lodash/Ramda
+          and other libraries, which is more or less constant and is also the
+          biggest in terms of size. With these steps we will make sure that
+          user’s subsequent page render speed is improved. Coz after the first
+          visit to our web app the user will not have to download this big file
+          of vendor code even if the app logic has changed.
+        </p>
+      </div>
+    </section>
+    <hr />
+    <section>
+      <div class="container-center">
+        <h3>How Versioning?</h3>
+        <p>
+          Versioning is very easy to set up with Webpack and is supported in all
+          its versions. Irrespective of whether we configure chunking, we can
+          setup versioning and even if we don’t configure caching, the default
+          settings of browser will make your app faster.
+        </p>
+      </div>
+    </section>
+    <hr />
+    <section>
+      <div class="container-center">
+        <h3>How Caching?</h3>
+        <p>
+          Configuring Caching in itself could be a topic of a blog series. To
+          keep it precise, I will share what I have done. We need to set up
+          caching on the server side. I use Express ( a micro web framework
+          built on top of NodeJS) to serve my build. The setting can be done on
+          any such framework. Idea is to set cache to expire on 30 days (just a
+          long time, you can set it for a year and it wouldn’t matter). As
+          discussed above, since we have versioning set up, new changes will
+          have new file names and hence new requests. For old files, this
+          setting will ensure that browsers use the file from cache. Now, the
+          default cache setting with versioning would have still made a request
+          to the server to check if the file has changed, a would have returned
+          a 304 NOT MODIFIED it is not changed. The max age property will even
+          save that one roundtrip request each file!
+        </p>
+      </div>
+    </section>
+    <hr />
+    <section>
+      <div class="container-center">
+        <h3>Parting words!</h3>
+        <p>
+          This entire thing is setup (though not in webpack 3) and tested in my
+          starter kit on Github. Here’s the link. Performance is like an ongoing
+          mission, so one has to keep thriving for better performance. There are
+          many more things I have done to increase my apps’ performance. If you
+          liked this article, show some appreciation, it will motivate me to
+          share some more experiences.
+        </p>
+      </div>
+    </section>
+    <footer class="footer">
+      <div>
+        For more info.<strong>CONNECT WITH ME SOCIALLY </strong>
+      </div>
+      <ul class="social-links list-non-bullet">
+        <li class="list-item-inline">
+          <a
+            class="link link-primary"
+            href="https://www.linkedin.com/in/arjun-singh-79a798a7/"
+          >
+            Linkedin</a
+          >
+        </li>
+        <li class="list-item-inline">
+          <a class="link link-primary" href="https://github.com/thakurarjun"
+            >Github</a
+          >
+        </li>
+        <li class="list-item-inline">
+          <a
+            class="link link-primary"
+            href="https://www.instagram.com/thakurarjun007/"
+            >Instagram</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

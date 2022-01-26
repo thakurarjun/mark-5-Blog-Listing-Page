@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Third blog page</title>
+    <link href="/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <section>
+        <div class="container-center container-image-ratio">
+            <h1><strong>23 tips to write better react</strong></h1>
+            <small>january31,2022</small>
+            <br>
+            <img class="container-center"
+                src="https://tanaypratap.com/static/67e5cc6df18ee30871e5570342f2a8c5/a402e/graduate-from-tutorial-code.jpg"
+                alt="" />
+            <p>
+                Aren’t there times in life where we wish we could just go back in time and tell yourself to do something
+                better. To start a project with a better approach, to share your learnings with your younger self. The
+                classic I-need-a-time-machine to-fix this code! It would just save so much time refactoring your code.
+                Like many of you who are reading this code, I learned React/Redux from online videos and tutorials. Many
+                of these tutorials are outdated, and or made too easy for the students to understand React. These were
+                never intended to be production level code.</p>
+            <br>
+            <p> I have been working on React almost exclusively from past one year and have been reading and writing
+                code. Below tips are from my personal experiences of refactoring code not once but many times.</p>
+            <br>
+            <p><strong>1. Use ES7 features,</strong>if you’re not using ES6 then you can probably not write React these
+                days, but even better would be to use ES7.</p>
+            <br>
+            <p> <strong>2. Start with the latest stable versions:</strong>React 16, React Router 4, Webpack 3 at least.
+                Better if you use the stable latest versions from start. This will save your time in upgradation later.
+            </p>
+            <br>
+            <p><strong>3. Use Proptypes:</strong> This serves dual purpose, documentation and sort of type checking for
+                your components. You can also provide default values to your props so that if things go south from the
+                API response your app will not just crash and burn.</p>
+            <br>
+            <p> <strong>4. Setup separate dev, stage and prod environments.</strong>You can assign the env variable in
+                React using the DefinePlugin. Use NPM scripts to run different versions as per requirements. It’s super
+                easy.</p>
+            <br>
+            <p> <strong>5. Comment your logic along,</strong>document the components. You think and make yourself
+                believe that you’ll remember but trust me you won’t.</p>
+            <br>
+            <p> <strong>6. Use async/await,</strong>if not at least promises!: If you’re starting now, it’s best to use
+                async/await than the promise. Makes the code easy on eyes and also easier to understand. If you see the
+                newer documentations for any Javascript library/framework you’ll see async/await being used extensively.
+                Use async/await for your node server as well. Node supports async/await from 7.6.0 and above. Node 8 is
+                stable and LTS release.
+                <br>
+                If for some reason, you can’t use async/await at least use promises.
+            </p>
+            <br>
+            <p> <strong>7. Don’t forget Testing:</strong>Jest is easy to setup. Requires minimal developer time but
+                saves major bugs.
+            </p>
+            <br>
+            <p><strong>8. Setup your Webpack for versioning and chunking,</strong>8. Setup your Webpack for versioning and chunking, don’t start with Webpack 1 anymore. Higher versions
+                support a lot of useful features by default for example tree shaking to make your build leaner.</p>
+        </div>
+    </section>
+</body>
+
+</html>
